@@ -1,6 +1,8 @@
 package kr.gsm.model;
 // JDBC->myBatis
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 public class MemberDAO {
    private Connection conn;  // DB연결객체
    private PreparedStatement ps;  //SQL전송객체
@@ -38,4 +40,35 @@ public class MemberDAO {
 	   }
 	   return cnt;
    }   
+   //회원전체리스트 : List<MemberVO> 
+   public List<MemberVO> memberList() {
+	   getConnect();
+	   String SQL="select * from member order by id asc"; // ?
+	   List<MemberVO> list=new ArrayList<MemberVO>();
+	   try {
+		    ps=conn.prepareStatement(SQL);
+		    rs=ps.executeQuery(); // select SQL
+		    while(rs.next()) {
+		       int num=rs.getInt("num");
+		       String id=rs.getString("id");
+		       String pass=rs.getString("pass");
+		       String name=rs.getString("name");
+		       int age=rs.getInt("age");
+		       String phone=rs.getString("phone");
+		       String email=rs.getString("email");
+		       MemberVO vo=new MemberVO();// 묶고
+		       vo.setNum(num);
+		       vo.setId(id);
+		       vo.setPass(pass);
+		       vo.setName(name);
+		       vo.setAge(age);
+		       vo.setPhone(phone);
+		       vo.setEmail(email);
+		       list.add(vo);//담고
+		    }
+	    } catch (Exception e) {
+		  e.printStackTrace();
+	   }
+	   return list;
+   }
 }
