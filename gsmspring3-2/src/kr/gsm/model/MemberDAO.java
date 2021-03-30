@@ -84,9 +84,10 @@ public class MemberDAO {
 	   }
 	   return cnt;
     }
-    public void memberContent(int num) {
+    public MemberVO memberContent(int num) {
     	getConnect();
-    	String SQL="select * from memebr where num=?";
+    	String SQL="select * from member where num=?";
+    	MemberVO vo=null;
     	try {
 			ps=conn.prepareStatement(SQL);
 			ps.setInt(1, num);
@@ -99,7 +100,7 @@ public class MemberDAO {
 			       int age=rs.getInt("age");
 			       String phone=rs.getString("phone");
 			       String email=rs.getString("email");
-			       MemberVO vo=new MemberVO();// 묶고
+			       vo=new MemberVO();// 묶고
 			       vo.setNum(num);
 			       vo.setId(id);
 			       vo.setPass(pass);
@@ -111,6 +112,7 @@ public class MemberDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+    	return vo;
     }    
 }
 
