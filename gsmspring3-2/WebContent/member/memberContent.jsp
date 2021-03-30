@@ -44,6 +44,13 @@
     <td>이메일</td>
     <td><%=vo.getEmail()%></td>   
  </tr>
+ <tr>
+     <td colspan="2" align="center">
+        <input type="button" value="수정" class="btn btn-primary"/>
+        <input type="button" value="취소" class="btn btn-warning"/>
+        <input type="button" value="리스트" class="btn btn-success"/>
+     </td>
+ </tr>
 </table>
 </body>
 </html>
