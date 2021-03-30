@@ -41,7 +41,7 @@
     %>
      <tr>
      <td><%=vo.getNum()%></td>
-     <td><%=vo.getId()%></td>
+     <td><a href="/m2/memberContent.do?num=<%=vo.getNum()%>"><%=vo.getId()%></a></td>
      <td><%=vo.getPass()%></td>
      <td><%=vo.getName()%></td>
      <td><%=vo.getAge()%></td>

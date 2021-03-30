@@ -12,4 +12,4 @@ create table member(
 insert into member(id,pass,name,age,phone,email)
 values('admin','admin','관리자',31,'010-1111-1111','bit@empas.com');
 
-select * from member;
+select * from member where num=15;

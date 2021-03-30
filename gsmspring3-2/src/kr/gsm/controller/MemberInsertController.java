@@ -37,7 +37,6 @@ public class MemberInsertController extends HttpServlet {
 		if(cnt>0) {
 			// 성공->리스트보기 요청으로...
 			//out.println("insert success~~");
-			// redirect기법
 			response.sendRedirect("/m2/memberList.do");
 		}else {
 			// 실패

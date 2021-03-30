@@ -26,7 +26,9 @@ public class MemberListController extends HttpServlet {
 		//응답화면을 여기서 만들것인가? = Servlet
 		//View=>JSP(memberList.jsp)
 		//응답을 요청할 JSP파일을 얻어오기
+		// 객체바인딩
 		request.setAttribute("list", list);
+		// forward(포워딩)
 		RequestDispatcher rd=request.getRequestDispatcher("member/memberList.jsp");
 		rd.forward(request, response); // memberList.jsp(실행)
 		
