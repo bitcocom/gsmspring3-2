@@ -13,8 +13,15 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+     function goList(){
+    	  location.href="/m2/memberList.do"; 
+     }
+  </script>
 </head>
 <body>
+<form action="/m2/memberUpdate.do" method="post">
+<input type="hidden" name="num" value="<%=vo.getNum()%>"/>
 <table class="table table-bordered">
  <tr>
     <td>번호</td>
@@ -46,11 +53,12 @@
  </tr>
  <tr>
      <td colspan="2" align="center">
-        <input type="button" value="수정" class="btn btn-primary"/>
-        <input type="button" value="취소" class="btn btn-warning"/>
-        <input type="button" value="리스트" class="btn btn-success"/>
+        <input type="submit" value="수정" class="btn btn-primary"/>
+        <input type="reset" value="취소" class="btn btn-warning"/>
+        <input type="button" value="리스트" class="btn btn-success" onclick="goList()"/>
      </td>
  </tr>
 </table>
+</form>
 </body>
 </html>
