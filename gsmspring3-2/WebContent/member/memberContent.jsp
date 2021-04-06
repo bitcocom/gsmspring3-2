@@ -34,15 +34,15 @@
  </tr>
   <tr>
     <td>나이</td>
-    <td><%=vo.getAge()%></td>   
+    <td><input type="text" name="age" value="<%=vo.getAge()%>" size="5" maxlength="3"/></td>   
  </tr>
   <tr>
     <td>전화번호</td>
-    <td><%=vo.getPhone()%></td>   
+    <td><input type="text" name="phone" value="<%=vo.getPhone()%>"/></td>   
  </tr>
   <tr>
     <td>이메일</td>
-    <td><%=vo.getEmail()%></td>   
+    <td><input type="text" name="email" value="<%=vo.getEmail()%>"/></td>   
  </tr>
  <tr>
      <td colspan="2" align="center">
