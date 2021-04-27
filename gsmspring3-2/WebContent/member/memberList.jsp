@@ -16,32 +16,52 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <script type="text/javascript">
        function register() {
-		  location.href="member/memberRegister.html";
+		  location.href="/m22/memberRegister.do";
 	   }
        function memDel(num){
-    	  location.href="/m2/memberDelete.do?num="+num; // get방식
+    	  location.href="/m22/memberDelete.do?num="+num; // get방식
        }
   </script>
 </head>
 <body>
-- 회원리스트-
-<table class="table table-bordered table-hover">
-  <tr>
-     <td>번호</td>
-     <td>아이디</td>
-     <td>패스워드</td>
-     <td>이름</td>
-     <td>나이</td>
-     <td>전화번호</td>
-     <td>이메일</td>
-     <td>삭제</td>
-  </tr>
-  <% for(int i=0;i<list.size();i++){ 
+<div class="container">
+  <h2>회원관리시스템</h2>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+		<form class="form-inline" action="/action_page.php">
+		  <div class="form-group">
+		    <label for="id">ID:</label>
+		    <input type="text" class="form-control" id="email" name="id">
+		  </div>
+		  <div class="form-group">
+		    <label for="pwd">PW:</label>
+		    <input type="password" class="form-control" id="pwd" name="pwd">
+		  </div>	
+		  <button type="submit" class="btn btn-default">로그인</button>
+		</form>
+    </div>
+    <div class="panel-body">
+		    <div class="table-responsive">          
+		  <table class="table table-hover">
+		    <thead>
+			    <tr>
+			     <td>번호</td>
+			     <td>아이디</td> 
+			     <td>패스워드</td>
+			     <td>이름</td>
+			     <td>나이</td>
+			     <td>전화번호</td>
+			     <td>이메일</td>
+			     <td>삭제</td>
+			  </tr>
+		    </thead>
+		    <tbody>
+		      <% for(int i=0;i<list.size();i++){ 
           MemberVO vo=list.get(i);
     %>
      <tr>
      <td><%=vo.getNum()%></td>
-     <td><a href="/m2/memberContent.do?num=<%=vo.getNum()%>"><%=vo.getId()%></a></td>
+     <td><a href="/m22/memberContent.do?num=<%=vo.getNum()%>"><%=vo.getId()%></a></td>
      <td><%=vo.getPass()%></td>
      <td><%=vo.getName()%></td>
      <td><%=vo.getAge()%></td>
@@ -55,6 +75,14 @@
       <input type="button"  onclick="register()"  value="회원가입" class="btn btn-primary"/>
     </td>
   </tr>
-</table>
+	</tbody>
+		  </table>
+		  </div>
+    </div>
+    <div class="panel-footer">
+      소프트웨어마이스터고(gsm3-2)
+    </div>
+  </div>
+</div>
 </body>
 </html>
